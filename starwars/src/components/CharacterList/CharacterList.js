@@ -15,4 +15,3 @@ const CharacterList = ({ characters }) => {
 };
 
 export default CharacterList;
-``;
