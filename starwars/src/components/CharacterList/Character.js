@@ -6,8 +6,7 @@ const Character = ({ character }) => {
     <li key={character.url} className="character-item">
       <ul className="character-info">
         <li className="character-info-item">
-          <span className="character-item-label">Name: </span>
-          {character.name}
+          <h2 className="character-info-item-heading">{character.name}</h2>
         </li>
         <li className="character-info-item">
           <span className="character-item-label">Born: </span>
