@@ -74,6 +74,7 @@
 
 .character-info-item-heading {
   background-color: rgba(50, 50, 50, 0.4);
+  border-radius: 5px;
   column-span: 2;
   font-size: 1.8rem;
   font-weight: normal;
