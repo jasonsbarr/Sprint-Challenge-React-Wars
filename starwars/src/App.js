@@ -1,5 +1,8 @@
 import React, { Component } from "react";
-import { CharacterList } from "./components/CharacterList";
+import {
+  CharacterList,
+  CharacterListControls,
+} from "./components/CharacterList";
 import "./App.css";
 
 class App extends Component {
@@ -8,9 +11,9 @@ class App extends Component {
     this.apiUrl = "https://swapi.co/api";
 
     this.state = {
-      next: "",
+      next: null,
       starwarsChars: [],
-      previous: "",
+      previous: null,
     };
   }
 
@@ -44,15 +47,19 @@ class App extends Component {
   };
 
   render() {
+    const pages = {
+      next: this.state.next,
+      previous: this.state.previous,
+    };
+
     return (
       <div className="App">
         <h1 className="Header">React Wars</h1>
-        <CharacterList
-          characters={this.state.starwarsChars}
-          next={this.state.next}
-          previous={this.state.previous}
-          onGetPage={this.handleGetPage}
-        />
+        <div id="star-wars-characters" className="characters">
+          <CharacterListControls onGetPage={this.handleGetPage} {...pages} />
+          <CharacterList characters={this.state.starwarsChars} />
+          <CharacterListControls onGetPage={this.handleGetPage} {...pages} />
+        </div>
       </div>
     );
   }
