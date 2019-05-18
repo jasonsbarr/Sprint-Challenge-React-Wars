@@ -5,13 +5,17 @@ import "./App.css";
 class App extends Component {
   constructor() {
     super();
+    this.apiUrl = "https://swapi.co/api";
+
     this.state = {
+      next: "",
       starwarsChars: [],
+      previous: "",
     };
   }
 
   componentDidMount() {
-    this.getCharacters("https://swapi.co/api/people/");
+    this.getCharacters(`${this.apiUrl}/people/`);
   }
 
   getCharacters = URL => {
@@ -23,18 +27,29 @@ class App extends Component {
         return res.json();
       })
       .then(data => {
-        this.setState({ starwarsChars: data.results });
+        this.setState({
+          next: data.next,
+          starwarsChars: data.results,
+          previous: data.previous,
+        });
       })
       .catch(err => {
         throw new Error(err);
       });
   };
 
+  handleGetPage = event => "";
+
   render() {
     return (
       <div className="App">
         <h1 className="Header">React Wars</h1>
-        <CharacterList characters={this.state.starwarsChars} />
+        <CharacterList
+          characters={this.state.starwarsChars}
+          next={this.state.next}
+          previous={this.state.previous}
+          onGetPage={this.handleGetPage}
+        />
       </div>
     );
   }
