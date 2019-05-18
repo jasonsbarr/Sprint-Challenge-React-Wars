@@ -1,0 +1,7 @@
+.characters ul {
+  padding-left: 0;
+}
+
+.characters ul li {
+  list-style: none;
+}
