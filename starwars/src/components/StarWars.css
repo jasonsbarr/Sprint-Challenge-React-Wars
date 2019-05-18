@@ -1,7 +1,63 @@
+.characters {
+  margin: 0 auto;
+  max-width: 800px;
+  width: 80%;
+}
+
 .characters ul {
   padding-left: 0;
 }
 
 .characters ul li {
   list-style: none;
+}
+
+.character {
+  background: linear-gradient(
+    to top right,
+    rgba(156, 9, 136, 0.658),
+    rgba(255, 131, 0, 0.8)
+  );
+  border-radius: 5px;
+  margin-bottom: 1.5rem;
+  padding: 2rem;
+}
+
+.character-info {
+  color: ivory;
+}
+
+.character-info-item {
+  margin-bottom: 10px;
+}
+
+.character-info-item:last-child {
+  margin-bottom: 0;
+}
+
+.character-info-item span {
+  display: inline-block;
+  width: 50%;
+}
+
+.character-info-item-heading {
+  background-color: rgba(50, 50, 50, 0.4);
+  column-span: 2;
+  font-size: 1.8rem;
+  font-weight: normal;
+  margin-bottom: 1rem;
+  margin-top: 0;
+  padding: 1rem;
+  text-align: center;
+}
+
+.character-item-label {
+  font-weight: bold;
+  padding-right: 0.6rem;
+  text-align: right;
+}
+
+.character-item-content {
+  padding-left: 0.6rem;
+  text-align: left;
 }
