@@ -1,5 +1,5 @@
 .characters {
-  margin: 0 auto;
+  margin: 0 auto 3rem;
   max-width: 800px;
   width: 80%;
 }
@@ -10,6 +10,38 @@
 
 .characters ul li {
   list-style: none;
+}
+
+.characters-controls {
+  overflow: hidden;
+}
+
+.btn-page {
+  background: linear-gradient(
+    to top right,
+    rgba(156, 9, 136, 1),
+    rgba(255, 131, 0, 1)
+  );
+  border: none;
+  color: whitesmoke;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 1.4rem;
+  height: 3.2rem;
+  transition: all 0.4s;
+  width: 8.5rem;
+}
+
+.btn-page:hover {
+  opacity: 0.8;
+}
+
+.previous {
+  float: left;
+}
+
+.next {
+  float: right;
 }
 
 .character {
