@@ -5,7 +5,12 @@ import "../StarWars.css";
 const CharacterList = ({ characters, ...props }) => {
   const showPageButton = page => {
     return props[page.toLowerCase()] ? (
-      <button className={`btn btn-page ${page}`}>{page}</button>
+      <button
+        onClick={() => props.onGetPage(page.toLowerCase())}
+        className={`btn btn-page ${page.toLowerCase()}`}
+      >
+        {page === "Previous" ? `« ${page}` : `${page} »`}
+      </button>
     ) : null;
   };
 

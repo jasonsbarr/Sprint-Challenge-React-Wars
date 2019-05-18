@@ -38,7 +38,10 @@ class App extends Component {
       });
   };
 
-  handleGetPage = event => "";
+  handleGetPage = page => {
+    this.getCharacters(this.state[page]);
+    window.scrollTo(0, 0);
+  };
 
   render() {
     return (
