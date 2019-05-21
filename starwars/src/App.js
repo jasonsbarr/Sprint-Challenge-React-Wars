@@ -1,16 +1,24 @@
-import React, { Component } from 'react';
-import './App.css';
+import React, { Component } from "react";
+import {
+  CharacterList,
+  CharacterListControls,
+} from "./components/CharacterList";
+import "./App.css";
 
 class App extends Component {
   constructor() {
     super();
+    this.apiUrl = "https://swapi.co/api";
+
     this.state = {
-      starwarsChars: []
+      next: null,
+      starwarsChars: [],
+      previous: null,
     };
   }
 
   componentDidMount() {
-    this.getCharacters('https://swapi.co/api/people/');
+    this.getCharacters(`${this.apiUrl}/people/`);
   }
 
   getCharacters = URL => {
@@ -22,17 +30,36 @@ class App extends Component {
         return res.json();
       })
       .then(data => {
-        this.setState({ starwarsChars: data.results });
+        this.setState({
+          next: data.next,
+          starwarsChars: data.results,
+          previous: data.previous,
+        });
       })
       .catch(err => {
         throw new Error(err);
       });
   };
 
+  handleGetPage = page => {
+    this.getCharacters(this.state[page]);
+    window.scrollTo(0, 0);
+  };
+
   render() {
+    const pages = {
+      next: this.state.next,
+      previous: this.state.previous,
+    };
+
     return (
       <div className="App">
         <h1 className="Header">React Wars</h1>
+        <div id="star-wars-characters" className="characters">
+          <CharacterListControls onGetPage={this.handleGetPage} {...pages} />
+          <CharacterList characters={this.state.starwarsChars} />
+          <CharacterListControls onGetPage={this.handleGetPage} {...pages} />
+        </div>
       </div>
     );
   }

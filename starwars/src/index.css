@@ -1,7 +1,21 @@
+html {
+  scroll-behavior: smooth;
+}
+
 body {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background-image: url('./sw-bg.jpg');
-  background-size: cover;
+  background-attachment: fixed;
+  background-image: url("./sw-bg.jpg");
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 100vw 100vh;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
 }
