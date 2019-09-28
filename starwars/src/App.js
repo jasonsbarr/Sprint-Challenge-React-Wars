@@ -1,5 +1,13 @@
 import React, { useState, useEffect } from "react";
 import CharacterList from "./components/CharacterList";
+import styled from "styled-components";
+
+const PageHeader = styled.h1`
+  font-size: 4rem;
+  font-family: "Star Jedi", sans-serif;
+  margin: 1rem auto;
+  text-align: center;
+`;
 
 const App = () => {
   const [characters, setCharacters] = useState([]);
@@ -15,8 +23,8 @@ const App = () => {
   useEffect(fetchUser, []);
 
   return (
-    <div className="App">
-      <h1 className="Header">React Wars</h1>
+    <div>
+      <PageHeader className="Header">React Wars</PageHeader>
       <CharacterList characters={characters} />
     </div>
   );
