@@ -1,19 +1,34 @@
-import React from 'react';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import CharacterList from "./components/CharacterList";
+import styled from "styled-components";
+
+const PageHeader = styled.h1`
+  font-size: 4rem;
+  font-family: "Star Jedi", sans-serif;
+  margin: 1rem auto;
+  text-align: center;
+`;
 
 const App = () => {
-  // Try to think through what state you'll need for this app before starting. Then build out
-  // the state properties here.
+  const [characters, setCharacters] = useState([]);
+  const fetchUser = () => {
+    fetch(`https://swapi.co/api/people/`)
+      .then(res => res.json())
+      .then(chars => {
+        setCharacters(chars.results);
+      })
+      .catch(err => console.error(err));
+  };
 
-  // Fetch characters from the star wars api in an effect hook. Remember, anytime you have a 
-  // side effect in a component, you want to think about which state and/or props it should
-  // sync up with, if any.
+  useEffect(fetchUser, []);
 
   return (
-    <div className="App">
-      <h1 className="Header">React Wars</h1>
+    <div>
+      <PageHeader className="Header">React Wars</PageHeader>
+      <CharacterList characters={characters} />
     </div>
   );
-}
+};
+// characters={characters}
 
 export default App;

@@ -24,15 +24,25 @@ In this challenge, create a web page that presents a styled list of Star Wars ch
 
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
-- [ ] What is React JS and what problems does it try and solve? Support your answer with concepts introduced in class and from your personal research on the web.
+- [x] What is React JS and what problems does it try and solve? Support your answer with concepts introduced in class and from your personal research on the web.
 
-- [ ] What does it mean to _think_ in react?
+Working with the DOM is actually a giant pain in the you-know-what, and React abstracts the painful details of the DOM away so you can program your application with a more consistent, elegant API. React also enables your apps to perform better and be more responsive to users' UI interactions because it manages updates, renders, and paints so you don't have to deal with the performance problems that can be caused by having tons of DOM elements update according to their own whims. It also provides state management functionalities that make it easier to keep your application and local states synced up and working together.
 
-- [ ] Describe state.
+- [x] What does it mean to _think_ in react?
 
-- [ ] Describe props.
+Thinking in React means being able to conceptualize your app in terms of components and groups of components so you can build those components in React and bring them together to assemble the overall application.
 
-- [ ] What are side effects, and how do you sync effects in a React component to state or prop changes?
+- [x] Describe state.
+
+State is the data in your application, both global to the whole app and local to the individual parts, and its configuration and values at any given time during the flow of using the app. Your application's outputs throughout the usage lifecycle are a function of inputs and current state.
+
+- [x] Describe props.
+
+Props are immutable data passed down from a component further up in the heirarchy so a component down the chain can make use of the data in its rendering and functionality. A component can pass its state down to another in the form of props but, while state can be updated and changed, props are immutable and only change in response to a rerender.
+
+- [x] What are side effects, and how do you sync effects in a React component to state or prop changes?
+
+Side effects are changes to your application that are not the result of a pure component calculating its outputs based solely on its computation of its inputs. Side effects can include changing a global variable, fetching data from another source like an API, logging to the console or printing data, or anything else that results in observable changes when a computation is completed that are not the return value of the computation itself.
 
 ## Project Set Up
 
